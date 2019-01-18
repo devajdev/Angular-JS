@@ -1,0 +1,171 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Hotel Registration</title>
+
+    <style>
+        tr{
+            background-color:#33FFFF;
+            color:#ff091e;
+            text-align:center;
+            font-weight: bold;
+        }
+        dt{
+            color:#FF00CC;
+            font-weight:bold
+        }
+    </style>
+
+    <script>
+
+        function registerClick() {
+
+            document.getElementById("summary").style.display = "block";
+            document.getElementById("tblOrder").style.display = "none";
+
+            var txtName=document.getElementById("txtName").value;
+            var txtDate=document.getElementById("txtDate").value;
+            var txtPerson=document.getElementById("txtPerson").value;
+            var txtDays=document.getElementById("txtDays").value;
+            var txtDelux=document.getElementById("txtDelux");
+            var txtSuite=document.getElementById("txtSuite");
+            var txtLocker=document.getElementById("txtLocker");
+            var txtAc=document.getElementById("txtAc");
+            var txtAdvance=document.getElementById("txtAdvance").value;
+
+            var roomCost=0,roomName="",balance=0,eminities="";
+            var locker=0,ac=0;
+
+            if (txtDelux.checked) {
+                if(txtPerson<=2)
+                    roomCost = 2500;
+                else
+                    roomCost= 2500+(txtPerson-2)*400;
+                roomName = txtDelux.value;
+            }
+            if (txtSuite.checked) {
+                if(txtPerson<=2)
+                    roomCost = 4000;
+                else
+                    roomCost= 4000+(txtPerson-2)*500;
+                roomName = txtSuite.value;
+            }
+            if (txtLocker.checked) {
+                locker=300;
+                roomCost = roomCost + locker;
+                eminities = eminities+txtLocker.value;
+            }
+            if (txtAc.checked) {
+                ac=500;
+                roomCost = roomCost + ac;
+                eminities = eminities+", "+txtAc.value;
+            }
+            if(txtAdvance=="")
+                alert("Advance Amount is Mandatory for security concern..");
+
+            roomCost=roomCost*txtDays;
+
+            if (roomCost > txtAdvance)
+                balance = roomCost - txtAdvance;
+
+            document.getElementById("lblName").innerHTML = txtName;
+            document.getElementById("lblDate").innerHTML = txtDate;
+            document.getElementById("lblPerson").innerHTML = txtPerson;
+            document.getElementById("lblDays").innerHTML = txtDays;
+            document.getElementById("lblRoom").innerHTML = roomName;
+            document.getElementById("lblEminities").innerHTML = eminities;
+            document.getElementById("lblAdvance").innerHTML = "&#8377; "+txtAdvance;
+            document.getElementById("lblBalance").innerHTML = "&#8377; "+balance;
+            document.getElementById("lblTotal").innerHTML = "&#8377; "+roomCost;
+        }
+
+    </script>
+
+</head>
+
+<body>
+<font size="4">
+
+    <table width="800" border="2" cellspacing="3" cellpadding="3" align="center" id="tblOrder">
+
+        <tr align="center">
+            <td colspan="2"><b><i><h1>Hotel Registration Form</h1></i></b></td>
+        </tr>
+
+        <tr align="center">
+            <td colspan="2">
+                <b><i><h2>Customer Info</h2></i>
+                    Customer Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" id="txtName" required/><br />
+                    Check in Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="date" id="txtDate"/> <br />
+                    Total No of Persons  : <input type="number" id="txtPerson" /><br />
+                    Total No of Days &nbsp;&nbsp;&nbsp; : <input type="number" id="txtDays"/>
+            </td>
+        </tr>
+
+        <tr align="center">
+            <td colspan="2"><b><i>
+                <p><h2>Choose Room Type</h2></p>
+                <table width="800" border="2">
+                    <tr>
+                        <td><img src="dulux.jpg" width="400" height="300" />
+                            <br /></br>
+                            <input type="radio" id="txtDelux" name="room" value="Delux Room"/> Delux Room ( &#8377; 2500 /- )
+                        </td>
+                        <td><img src="suite.jpg" width="400" height="300" />
+                            <br /><br />
+                            <input type="radio" id="txtSuite" name="room" value="Suite Room" /> Suite Room ( &#8377; 4000 /- )
+                        </td>
+                    </tr>
+                </table>
+            </i></b>
+            </td>
+        </tr>
+
+        <tr align="center">
+            <td colspan="2"><b><i>
+                <p><h2>Select Eminities</h2></p>
+                <table width="800" border="2">
+                    <tr>
+                        <td><img src="locker.jpg" width="400" height="300" />
+                            <br /></br>
+                            <input type="checkbox" id="txtLocker" value="Locker"/> Locker ( &#8377; 300 /- )
+                        </td>
+                        <td><img src="ac.jpg" width="400" height="300" />
+                            <br /><br />
+                            <input type="checkbox" id="txtAc" value="A/C"/> A/C ( &#8377; 500 /- )
+                        </td>
+                    </tr>
+                </table>
+            </i></b>
+            </td>
+        </tr>
+
+        <tr align="center">
+            <td colspan="2"><b><i><h2>Payment Advance </h2></i></b>
+                Advance Amount : <input type="number" id="txtAdvance"/>
+                <br><br><input type="button" value="Register" onClick="registerClick()"/><br><br>
+                <div align="center" style="color: red"><b><i>Note if the person are more than 2 then extra charge will apply,&nbsp;  for Suite Room &#8377; 500/- per person and for Delux Room &#8377; 400/- </i></b></div>
+            </td>
+        </tr>
+    </table><br>
+
+
+    <fieldset id="summary" style="display:none" >
+        <legend>Summary</legend>
+        Customer Info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <span id="lblName"></span><br>
+        Check In Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <span id="lblDate"></span><br>
+        Total No of Person &nbsp;&nbsp; : <span id="lblPerson"></span><br>
+        Total No of Days &nbsp;&nbsp;&nbsp;&nbsp; : <span id="lblDays"></span><br>
+        Room Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <span id="lblRoom"></span><br>
+        Eminities &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <span id="lblEminities"></span><br>
+        Total Amount &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <span id="lblTotal"></span><br>
+        Advance Deposit &nbsp;&nbsp;&nbsp;&nbsp; : <span id="lblAdvance"></span><br>
+        Remaining Balance &nbsp;: <span id="lblBalance"></span><br><br>
+
+        <div>
+            <a href="index.html">Booking Another</a>
+        </div>
+    </fieldset>
+</font>
+</body>
+</html>

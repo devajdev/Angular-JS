@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <script>
+        function Verify() {
+            pin=document.getElementById("txtPin").value;
+            msg=document.getElementById("msg");
+            txt="Invalid";
+            if(pin==3344){
+                document.write("Success...")
+            }
+            else{
+                msg.innerText=txt.fontcolor('red');
+            }
+        }
+    </script>
+</head>
+<body>
+<fieldset>
+    <legend>Verify pin</legend>
+    <input type="text" id="txtPin">
+    <input type="button" value="Verify" onclick="Verify()">
+</fieldset>
+<br>
+<div align="center" id="msg"></div>
+</body>
+</html>

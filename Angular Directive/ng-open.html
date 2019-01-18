@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Modules/DemoModules.js"></script>
+</head>
+<body ng-app="DemoApp">
+    <input type="checkbox" ng-model="show">Show Ads
+    <br>
+    <dialog ng-open="show">
+        <img src="../Images/1.jpg" width="400" height="400">
+    </dialog>
+    <br>
+    <table width="600" border="2" align="center">
+        <tr height="400">
+            <td width="200">
+                <ol>
+                    <li><input type="checkbox" ng-model="js">Java Script</li>
+                    <li><input type="checkbox" ng-model="ng">Angular JS</li>
+                </ol>
+            </td>
+            <td width="400">
+                <details ng-open="js">
+                    <summary>Java Script</summary>
+                    <ol>
+                        <li>Variable</li>
+                        <li>Operators</li>
+                        <li>Data Type</li>
+                    </ol>
+                </details>
+                <details ng-open="ng">
+                    <summary>Angular JS</summary>
+                    <ol>
+                        <li>Directive</li>
+                        <li>Filters</li>
+                        <li>Modules</li>
+                    </ol>
+                </details>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

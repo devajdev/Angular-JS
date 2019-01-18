@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.products=[
+                {
+                    Name:"Samsung TV",
+                    Price:45000.56,
+                    Photo:"../Images/1.jpg"
+                },
+                {
+                    Name:"Nike",
+                    Price:3600.45,
+                    Photo:"../Images/2.jpg"
+                }
+            ];
+            $scope.lstProduct="";
+            $scope.txtQty="";
+            $scope.name="";
+            $scope.photo="";
+            $scope.price="";
+            $scope.amount="";
+
+            function Details(index) {
+                $scope.name=$scope.products[index].Name;
+                $scope.photo=$scope.products[index].Photo;
+                $scope.price=$scope.products[index].Price;
+
+            }
+            $scope.GetProduct=function () {
+                switch ($scope.lstProduct) {
+                    case "tv":
+                        Details(0);
+                        break;
+                    case "shoe":
+                        Details(1);
+                        break;
+                }
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <div align="center">
+        <h2>Select Product</h2>
+        <select ng-model="lstProduct" ng-change="GetProduct()">
+            <option value="tv">Tv</option>
+            <option value="shoe">Shoe</option>
+        </select>
+        <br>
+        <div>
+            <h3>{{name}}</h3>
+            <img ng-src="{{photo}}" width="200" height="150" border="2">
+            <br>
+            {{price | currency:'&#8377;'}}
+            <br>
+            <div>
+                Select Quantity : <input type="number" ng-model="txtQty" min="1" max="3">
+            </div>
+            <br>
+            <h2 align="center">Total Amount : {{txtQty*price}}</h2>
+        </div>
+    </div>
+</body>
+</html>

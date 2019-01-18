@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <script>
+        function Verify() {
+            pin=document.getElementById("txtPin").value;
+            if(pin==3344){
+                document.write("Success...");
+            }
+            else{
+                document.write("Invalid");
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Verify pin</legend>
+        <input type="text" id="txtPin">
+        <input type="button" value="Verify" onclick="Verify()">
+    </fieldset>
+</body>
+</html>

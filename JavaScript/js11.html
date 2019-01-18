@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <script>
+        function f1() {
+        var product={id:1, Name:"TV", Price:30000.56, inStock:true, Quantity:2, ShippedTo:["Delhi","Hyd"],
+                            Total:function () {
+                                            return product.Quantity*product.Price;
+                                              }
+        };
+        if(product.inStock==true)
+            var stock="Available";
+        else
+            stock="Out Of Stock";
+        document.write("Id = "+product.id+"<br>"+
+                        "Name = "+product.Name+"<br>"+
+                        "Price = "+product.Price+"<br>"+
+                        "InStock = "+product.inStock+"<br>"+
+                        "Quantity = "+product.Quantity+"<br>"+
+                        "ShippedTo = "+product.ShippedTo.toString()+"<br>"+
+                        "Total Amount = "+product.Total()+"<br>");
+            }
+            f1();
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

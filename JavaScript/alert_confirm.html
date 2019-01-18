@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <script>
+        function SubmitClick() {
+            alert("Record Inserted")
+        }
+        function DeleteClick() {
+            x=confirm("Record Deleted");
+            (x==true)?alert("you press ok"):alert("you press cancel");
+        }
+    </script>
+</head>
+<body>
+    <h2>Click the Button</h2>
+        <input type="button" value="Submit" onclick="SubmitClick()">
+        <input type="button" value="Delete" onclick="DeleteClick()">
+</body>
+</html>

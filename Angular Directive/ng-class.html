@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Modules/DemoModules.js"></script>
+    <style>
+        .back-Style{
+            background: yellow;
+        }
+        .textStyle{
+            text-align: center;
+        }
+        .borderStyle{
+            border-style: dotted;
+        }
+    </style>
+</head>
+<body ng-app="DemoApp">
+    <fieldset>
+        <legend>Applying Effects to Anguar JS</legend>
+        <input ng-model="effects" type="text" placeholder="back-Style, textStyle...">
+    </fieldset>
+    <h2 ng-class="effects">Welcome To Angular JS</h2>
+    <h2 ng-class="{'back-Style':isBackground,textStyle:isTextEffects,borderStyle:isBorder}">Welcome To JavaScript</h2>
+    <fieldset>
+        <legend>Apply Effets on JavaScript</legend>
+        <ol>
+            <li>
+                <input type="checkbox" ng-model="isBackground">Add Back Ground
+            </li>
+            <li>
+                <input type="checkbox" ng-model="isTextEffects">Add Text Effects
+            </li>
+            <li>
+                <input type="checkbox" ng-model="isBorder">Add Border
+            </li>
+        </ol>
+    </fieldset>
+
+</body>
+</html>

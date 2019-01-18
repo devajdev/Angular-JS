@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Refer By DOM</title>
+    <script>
+        function bodyload() {
+            pics=document.getElementsByTagName("img");
+            headings=document.getElementsByTagName("form");
+            alert("total number of images "+pics.length);
+            alert("total number of form tag "+headings.length);
+            document.getElementById("pic").src="Images/2.jpg";
+            document.getElementById("btnLogin").value="Login";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+<div>
+    <img width="100" height="100" border="1" id="pic">
+</div>
+<div>
+    <form id="frmHome">
+        <input type="text" id="txtName">
+        <input type="button" id="btnLogin">
+    </form>
+</div>
+</body>
+</html>

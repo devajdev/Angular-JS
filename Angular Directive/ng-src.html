@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Modules/DemoModules.js"></script>
+</head>
+<body ng-app="DemoApp">
+    <div align="center" ng-init="pic='../Images/1.jpg'">
+        <img ng-src="{{pic}}" width="400" height="400" border="1"><br>
+        <button ng-click="pic='../Images/2.jpg'">New Image</button>
+        <button ng-click="pic='../Images/3.jpg'">New Iamge</button>
+    </div>
+</body>
+</html>

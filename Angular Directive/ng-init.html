@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Modules/DemoModules.js"></script>
+    <style>
+        dt{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body ng-app="DemoApp">
+    <dl>
+        <dt ng-init="count=0">Intialize Variable</dt>
+        <dd ng-click="count=count+1">{{count}} like(s)</dd>
+        <dt ng-init="uname='Devaj'">Initialize String</dt>
+        <dd>Hello ! {{uname}}</dd>
+        <dt ng-init="cities=['Delhi',' Hyd']">Intialize Array</dt>
+        <dd>cities : {{cities.toString()}}<br>
+        city[1] = {{cities[1]}}
+        </dd>
+        <dt ng-init="product={Name:'TV',Price:40000}">Intializg Object</dt>
+        <dd>
+            Name : {{product.Name}}<br>
+            Price : {{product.Price}}
+        </dd>
+        <dt ng-init="products=[{Name:'TV'},{Name:'Mobile'},{Name:'Watch'}]">Intializg JSON</dt>
+        <dd>
+            <pre>
+                {{products | json}}
+            </pre>
+        </dd>
+    </dl>
+
+
+</body>
+</html>

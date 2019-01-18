@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function f($scope) {
+            $scope.category=["Electronic","Shoes"];
+            $scope.lstCategory="";
+            $scope.lstProducts="";
+            $scope.eletronicProducts=["Samsung TV","Mobile"];
+            $scope.shoeProducts=["Nike Shoe","Lee Cooper Boot"];
+            $scope.productDetails=[
+                {
+                    Name:"Samsung TV",Price:45200,Photo:"../Images/1.jpg"
+                },
+                {
+                    Name:"Mobile",Price:15200,Photo:"../Images/2.jpg"
+                },
+                {
+                    Name:"Nike Shoe",Price:4200,Photo:"../Images/3.jpg"
+                },
+                {
+                    Name:"Lee Cooper Boot",Price:5200,Photo:"../Images/4.jpg"
+                }
+            ];
+            $scope.products="";
+            $scope.selectCategory=function () {
+                switch ($scope.lstCategory) {
+                    case "Electronic":
+                        $scope.products=$scope.eletronicProducts;
+                        break;
+                    case "Shoes":
+                        $scope.products=$scope.shoeProducts;
+                        break;
+                }
+            }
+            $scope.name="";
+            $scope.price="";
+            $scope.photo="";
+
+            function showDetails(index) {
+                $scope.name=$scope.productDetails[index].Name;
+                $scope.price=$scope.productDetails[index].Price;
+                $scope.photo=$scope.productDetails[index].Photo;
+            }
+            $scope.selectProduct=function () {
+                switch ($scope.lstProducts) {
+                    case "Samsung TV":
+                        showDetails(0);
+                        break;
+                    case "Mobile":
+                        showDetails(1);
+                        break;
+                    case "Nike Shoe":
+                        showDetails(2);
+                        break;
+                    case "Lee Cooper Boot":
+                        showDetails(3);
+                        break;
+                }
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <div align="center">
+        <h2>Shopping Cart</h2>
+        Select A Category<br>
+        <select ng-model="lstCategory" ng-options="item for item in category" ng-change="selectCategory()"></select><br>
+        Select A Product<br>
+        <select ng-model="lstProducts" ng-options="item for item in products" ng-change="selectProduct()"></select><br>
+        <h3>{{name}}</h3>
+        <img ng-src="{{photo}}" width="200" height="200" border="1">
+        <br>
+        <div>{{price | currency:'&#8377;'}}</div>
+    </div>
+</body>
+</html>

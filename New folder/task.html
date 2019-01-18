@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Pin Number Checker</title>
+    <script>
+        function submit() {
+            var num = document.getElementById("pin").value;
+            var a, b, c, d, x;
+            x=num;
+            if(isNaN(num))
+                alert("Please Enter Digits Only (0-9) ");
+
+            else{
+
+                if(num.length<4)
+                    alert("Please Enter Exactly 4 Digits Number");
+
+                else{
+                    a = num % 10;
+                    num = Math.floor(num / 10);
+                    b = num % 10;
+
+                    if (a == b)
+                        alert("Pin Number Digits Should Not Be Repeated..");
+
+                    else {
+                        num = Math.floor(num / 10);
+                        c = num % 10;
+
+                        if (a == b || a == c || b == c)
+                            alert("Pin Number Digits Should Not Be Repeated..");
+
+                        else {
+                            num = Math.floor(num / 10);
+                            d = num % 10;
+
+                            if (a == b || a == c || a == d || b == c || b == d || c == d)
+                                alert("Pin Number Digits Should Not Be Repeated..");
+                            else
+                                document.write("Your Pin is a Valid Pin Number : " + x);
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <fieldset>
+        <legend>Pin Number Checker</legend>
+        <tr>
+            <td>Enter Pin : <input type="text" id="pin" placeholder=" Enter 4 Digits Different Number" maxlength="4" size="26" /></td>
+            <td><input type="submit"  value="Check" onclick="submit()"> </td>
+        </tr>
+    </fieldset>
+</div>
+</body>
+</html>

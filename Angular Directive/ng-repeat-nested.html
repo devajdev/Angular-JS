@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Modules/DemoModules.js"></script>
+</head>
+<body ng-app="DemoApp">
+ <div ng-init="amazon=[{categoryName:'Electronic',Products:['Samsung TV','LG Mobile']},{categoryName:'Shoes',Products:['Nike Shoe','Lee Cooper Shoe']}]">
+    <ol>
+        <li ng-repeat="category in amazon">
+            {{category.categoryName}}
+            <ul>
+                <li ng-repeat="product in category.Products">
+                    {{product}}
+                </li>
+            </ul>
+        </li>
+    </ol>
+    </div>
+</body>
+</html>

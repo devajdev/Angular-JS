@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="Scripts/angular.js"></script>
+    <script src="Modules/DemoModules.js"></script>
+    <script src="Controller/HomeController.js"></script>
+    <script src="Controller/ContactController.js"></script>
+</head>
+<body ng-app="DemoApp">
+    <h2>Angular Project</h2>
+        <div>Addition : {{10+20}}</div>
+        <div ng-controller="HomeController">
+            Multiplication : {{result}}
+        </div>
+        <div ng-controller="ContactController">
+            <address>
+               Address : {{address}}
+            </address>
+        </div>
+</body>
+</html>

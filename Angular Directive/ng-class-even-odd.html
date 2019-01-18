@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Modules/DemoModules.js"></script>
+    <style>
+        .oddStyle{
+            background-color: cyan;
+            color: red;
+        }
+        .evenStyle{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body ng-app="DemoApp">
+    <div ng-init="products=[{Name:'TV',Price:45000},{Name:'Mobile',Price:10000}]">
+        <table border="1" align="center" width="400">
+            <th>Name</th>
+            <th>Price</th>
+            <tr ng-class-even="'evenStyle'" ng-class-odd="'oddStyle'" ng-repeat="item in products">
+                <td>{{item.Name}}</td>
+                <td>{{item.Price}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

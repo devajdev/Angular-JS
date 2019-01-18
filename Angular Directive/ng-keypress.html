@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Modules/DemoModules.js"></script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    Your Text :<input type="text" ng-model="txtName" ng-keypress="event=$event"><br>
+    Key Code :{{event.keyCode}}<br>
+
+</body>
+</html>
